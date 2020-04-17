@@ -5,32 +5,33 @@
     <p>{{ profile.email }}</p>
     <div class="row">
       <div class="col-8 m-auto">
-       <blog v-for="blog in getMyBlogs" :blogData="blog" :key="blog._id"></blog>
+       <profileBlog v-for="profileBlog in getMyBlogs" :blogData="profileBlog" :key="profileBlog._id">
+       </profileBlog>
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Blog from "../components/Blog.vue";
+import ProfileBlog from "../components/ProfileBlog.vue";
 export default {
   name: "Profile",
   
   created() {
-    this.$store.dispatch("getBlogs");
+    this.$store.dispatch("getMyBlogs");
+    this.$store.dispatch("getProfile");
   },
   computed: {
     profile() {
       return this.$store.state.profile;
     },
     getMyBlogs() {
-             return this.$store.state.blogs.filter(email => {
-        return email.creatorEmail.match(this.profile.name);
-      });
-    }
+             return this.$store.state.blogs
+    },
   },
   components: {
-    Blog
+    ProfileBlog
   }
 };
 </script>

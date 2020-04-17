@@ -45,7 +45,8 @@ export default {
     addBlog() {
       this.$store.dispatch("addBlog", this.newBlog);
       this.newBlog = {};
-    },
+      this.$router.push({ name: "Profile" });
+    }
   },
   components: {}
 };

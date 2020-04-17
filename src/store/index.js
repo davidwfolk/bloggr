@@ -60,11 +60,20 @@ export default new Vuex.Store({
   },
   async getMyBlogs({commit, dispatch }, userBlog){
     try {
-      let res = await api.get('profile', userBlog);
-    commit('setUserBlogs', res.data)
+      let res = await api.get('profile/blogs/');
+    commit('setBlogs', res.data)
     } catch (error) {
       console.error(error)
     }
   },
+  async deleteBlog({ commit, dispatch }, blogId) {
+    try {
+      let res = await api.delete('blogs/' + blogId);
+      dispatch('getMyBlogs')
+    } catch (error) {
+      console.error(error)
+    }
+},
+
   },
 });
