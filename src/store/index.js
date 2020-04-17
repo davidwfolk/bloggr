@@ -58,5 +58,13 @@ export default new Vuex.Store({
         console.error(error)
       }
   },
+  async getMyBlogs({commit, dispatch }, userBlog){
+    try {
+      let res = await api.get('profile', userBlog);
+    commit('setUserBlogs', res.data)
+    } catch (error) {
+      console.error(error)
+    }
+  },
   },
 });

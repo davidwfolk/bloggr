@@ -11,7 +11,7 @@
       placeholder="Find blogs by user..."
       aria-label="Search"
       />
-    <div class="allJokes row">
+    <div class="allBlogs row">
       <div class="col-12 m-3">
         <blog v-for="blog in sortBlogs" :blogData="blog" :key="blog._id"></blog>
       </div>

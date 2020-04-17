@@ -45,7 +45,7 @@ export default {
     addBlog() {
       this.$store.dispatch("addBlog", this.newBlog);
       this.newBlog = {};
-    }
+    },
   },
   components: {}
 };
