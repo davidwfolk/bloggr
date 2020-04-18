@@ -12,7 +12,7 @@
 import CreateComment from "./CreateComment.vue"
 export default {
   name: 'comment',
-  props: ["commentsData"],
+  props: ["blogData"],
   data(){
     return {
       revealComments: false

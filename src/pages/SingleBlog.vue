@@ -2,8 +2,8 @@
 <template>
   <div class="col-12 blog mx-auto text-center
   card border-light p-3 mt-5 mb-5">
-      <H2>{{getFullBlog.blog.title}}</H2>
-      <h4>{{getFllBlog.blog.creatorEmail}}</h4>
+      <h2>{{getFullBlog.blog.title}}</h2>
+      <h4>{{getFullBlog.blog.creatorEmail}}</h4>
       <p>{{getFullBlog.blog.body}}</p>
 
         <!-- <button @click="goHome()" type="button"
@@ -14,7 +14,6 @@
 
 
 <script>
-debugger
 // import Blog from "../components/Blog.vue"
 export default {
   name: 'singleBlog',
@@ -23,7 +22,10 @@ export default {
     return {
     }
   },
-  computed:{
+  // created() {
+  //   this.$store.dispatch("getBlog"),
+  // },
+  computed:{   
     getFullBlog() {
       return this.$store.state.blogDetails
     }

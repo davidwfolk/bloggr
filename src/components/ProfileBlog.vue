@@ -50,7 +50,8 @@
 import Comment from "./Comment.vue"
 export default {
   name: 'profileBlog',
-  props: ["blogData"], 
+  props: ["blogData"],
+
   data(){
     return {
       revealComments: false,

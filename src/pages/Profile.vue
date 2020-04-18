@@ -30,9 +30,9 @@ export default {
     getMyBlogs() {
       return this.$store.state.blogs
     },
-    getComments() {
-      return this.$store.state.comments
-    }
+    // getComments() {
+    //   return this.$store.state.comments
+    // }
   },
   components: {
     ProfileBlog,

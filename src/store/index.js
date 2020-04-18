@@ -49,6 +49,7 @@ export default new Vuex.Store({
       try{
         let res = await api.get('blogs/' + blogId._id)
         commit('setBlogDetails', res.data)
+        dispatch('setBlogDetails', res.data)
       } catch (error) {
         console.error(error)
       }

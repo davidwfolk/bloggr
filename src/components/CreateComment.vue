@@ -14,21 +14,27 @@
 
 
 <script>
+
 export default {
   name: "create-comment",
+  props: ["blogData"],
+  
   data() {
     return {
       newComment: {}
+
     };
   },
   mounted() {},
   computed: {},
   methods: {
     addComment() {
-      this.newComment.blogId == this.$route.params._id
+      this.newComment.blogId == this.blogData._id
+      console.log(this.newComment.blogId )
+      this.newComment.creatorEmail = this.blogData.creatorEmail//this seems to be in the right track??
       this.$store.dispatch("addComment", this.newComment);
       this.newComment = {};
-      console.log(this.newComment.blogId)
+      console.log(this.newComment.creatorEmail)
     }
   },
   components: {}
