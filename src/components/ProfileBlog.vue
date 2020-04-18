@@ -18,7 +18,7 @@
           v-model="blogData.body"
          />
         </div>
-        <button @click="editBlog(data)" type="button"
+        <button @click="editBlog()" type="button"
     class="btn ml-auto" style="color: green">Submit</button>
       </form>
     </div>
@@ -51,9 +51,9 @@ export default {
        deleteBlog() {
       this.$store.dispatch("deleteBlog", this.blogData._id);
     },
-      editBlog(data) {
+      editBlog() {
         debugger
-      this.$store.dispatch("editBlog", this.blogData._id,this.blogData);
+      this.$store.dispatch("editBlog", this.blogData);
       this.editing = false
       },
       getCommentsByBlogId() {

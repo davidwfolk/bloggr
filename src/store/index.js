@@ -78,10 +78,10 @@ export default new Vuex.Store({
       console.error(error)
     }
 },
-async editBlog({ commit, dispatch }, blogId, data) {
+async editBlog({ commit, dispatch }, blogId) {
   try {
-    let res = await api.put('blogs/' + blogId, data);
     debugger
+    let res = await api.put('blogs/' + blogId._id, blogId);
     commit('setBlogs', res.data)
     dispatch('getMyBlogs')
   } catch (error) {
@@ -96,20 +96,19 @@ async addComment({ commit, dispatch }, newComment) {
     console.error(error)
   }
 },
-async getComments({commit, dispatch}) {
+async getCommentsByBlogId({commit, dispatch}, blogId) {
   try{
-    let res = await api.get('comments')
+    let res = await api.get('comments/' + blogId)
+    let found = 
     commit('setComments', res.data)
   } catch (error) {
     console.error(error)
 
   }
 },
-async getCommentsByBlogId({commit, dispatch}, blogId) {
+async getComments({commit, dispatch}) {
   try{
-    let postCommentElements 
-    let res = await api.get('comments/' + blogId)
-    let found = 
+    let res = await api.get('comments')
     commit('setComments', res.data)
   } catch (error) {
     console.error(error)
