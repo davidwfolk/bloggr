@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import LabelEdit from 'label-edit'
 import Navbar from "@/components/navbar";
 import { onAuth } from "@bcwdev/auth0-vue";
 import { setBearer, api } from "./store/AxiosStore";
