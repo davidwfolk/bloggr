@@ -18,15 +18,17 @@ export default {
   name: "create-comment",
   data() {
     return {
-      newComment: []
+      newComment: {}
     };
   },
   mounted() {},
   computed: {},
   methods: {
     addComment() {
+      this.newComment.blogId == this.$route.params._id
       this.$store.dispatch("addComment", this.newComment);
-      this.newComment = [];
+      this.newComment = {};
+      console.log(this.newComment.blogId)
     }
   },
   components: {}

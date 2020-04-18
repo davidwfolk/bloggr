@@ -9,7 +9,7 @@ export default new Vuex.Store({
   state: {
     profile: {},
     blogs: [],
-    comments: []
+    blogDetails: {}
   },
   mutations: {
     setProfile(state, profile) {
@@ -18,8 +18,8 @@ export default new Vuex.Store({
     setBlogs (state, blogs) {
       state.blogs = blogs
     },
-    setComments (state, comments) {
-      state.comments = comments
+    setBlogDetails (state, blog) {
+      state.blogDetails = blog
     }
   },
   actions: {
@@ -48,7 +48,7 @@ export default new Vuex.Store({
     async getBlog({commit, dispatch}, blogId) {
       try{
         let res = await api.get('blogs/' + blogId._id)
-        commit('setBlogs', res.data)
+        commit('setBlogDetails', res.data)
       } catch (error) {
         console.error(error)
       }
@@ -56,7 +56,7 @@ export default new Vuex.Store({
     async getSingleBlog({commit, dispatch}, blogId) {
       try{
         let res = await api.get('blogs/' + blogId._id )
-        dispatch('getBlog')
+        dispatch('setBlogs')
       } catch (error) {
         console.error(error)
       }
@@ -111,7 +111,8 @@ async addComment({ commit, dispatch }, newComment) {
   try {
     debugger
     let res = await api.post('comments', newComment)
-    dispatch('getComments')
+    console.log(res.data)
+    dispatch('getBlog', newComment.blogId)
   } catch (error) {
     console.error(error)
   }

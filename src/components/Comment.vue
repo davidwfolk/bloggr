@@ -20,13 +20,13 @@ export default {
     
   },
   computed:{
-    methods:{
-      profilePage() {
-    this.$store.dispatch("getComments")
-      },
-      // this.$router.push({name: "SingleBlog"})
-    }
   },
+  methods:{
+    //   profilePage() {
+    // this.$store.dispatch("getComments")
+    //   },
+      // this.$router.push({name: "SingleBlog"})
+    },
   components:{ CreateComment }
 }
 </script>

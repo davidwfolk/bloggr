@@ -15,7 +15,8 @@ export default {
     return {};
   },
   mounted() {},
-  computed: {},
+  computed: {
+  },
   methods: {},
   components: { CreateBlog }
 };

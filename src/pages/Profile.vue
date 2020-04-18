@@ -21,7 +21,7 @@ export default {
   created() {
     this.$store.dispatch("getMyBlogs");
     this.$store.dispatch("getProfile");
-    this.$store.dispatch("getMyComments")
+
   },
   computed: {
     profile() {
@@ -30,7 +30,7 @@ export default {
     getMyBlogs() {
       return this.$store.state.blogs
     },
-    getMyComments() {
+    getComments() {
       return this.$store.state.comments
     }
   },

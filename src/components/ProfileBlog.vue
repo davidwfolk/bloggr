@@ -39,8 +39,8 @@
     <button type="button" class="btn btn m-auto" style="color: green" @click="deleteBlog()">Delete Blog</button>
     <button type="button" class="btn m-auto" style="color: green" @click="editing=true">Edit Blog</button>
     </div>
-           <blogComment v-for="blogComment in getComments" :blogData="blogComment" :key="blogComment._id">
-       </blogComment>
+           <!-- <blogComment v-for="blogComment in getComments" :blogData="blogComment" :key="blogComment._id">
+       </blogComment> -->
         <Comment />
   </div>
 </template>
@@ -59,10 +59,8 @@ export default {
     }
   },
   computed:{
-      // getComments () {
-      //   return this.$store.state.comments
-      // }
   },
+
   methods:{
        deleteBlog() {
       this.$store.dispatch("deleteBlog", this.blogData._id);
@@ -71,9 +69,6 @@ export default {
       this.$store.dispatch("editBlog", this.blogData);
       this.editing = false
       },
-      // getCommentsByBlogId() {
-      //   this.$store.dispatch("getCommentsByBlogId",)
-      // }
       
   },
   components:{
