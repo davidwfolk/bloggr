@@ -47,7 +47,6 @@ export default new Vuex.Store({
     },
     async getBlog({commit, dispatch}, blogId) {
       try{
-        debugger
         let res = await api.get('blogs/' + blogId._id)
         commit('setBlogs', res.data)
       } catch (error) {
@@ -56,7 +55,6 @@ export default new Vuex.Store({
     },
     async getSingleBlog({commit, dispatch},) {
       try{
-        debugger
         let res = await api.get('blogs')
         dispatch('getBlog')
       } catch (error) {
