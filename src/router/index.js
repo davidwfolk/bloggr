@@ -7,6 +7,8 @@ import Profile from "../pages/Profile.vue";
 import { authGuard } from "@bcwdev/auth0-vue";
 // @ts-ignore
 import NewBlog from "../pages/NewBlog.vue";
+//@ts-ignore
+import SingleBlog from "../pages/SingleBlog.vue"
 
 Vue.use(VueRouter);
 
@@ -27,6 +29,11 @@ const routes = [
     name: "NewBlog",
     component: NewBlog,
     beforeEnter: authGuard,
+  },
+  {
+    path: "/singleblog",
+    name: "SingleBlog",
+    component: SingleBlog
   }
 ];
 

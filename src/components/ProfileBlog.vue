@@ -52,7 +52,6 @@ export default {
       this.$store.dispatch("deleteBlog", this.blogData._id);
     },
       editBlog() {
-        debugger
       this.$store.dispatch("editBlog", this.blogData);
       this.editing = false
       },

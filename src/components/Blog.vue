@@ -1,7 +1,8 @@
 <template>
-  <div class="blog m-5 card border-light text-center p-1">
+  <div class="blog col-8 mx-auto mb-2 card border-light text-center p-1">
     <p>{{blogData.title}}</p>
-    <p>{{blogData.body}}</p>
+    <p>{{blogData.creatorEmail}}</p>
+    <button class="btn btn-primary" @click="blogPage()">View Blog</button>
    
     <!-- <img :src="{{blogData.imgUrl}}"/> -->
     <!-- <button v-on:click="revealComments = !revealComments" class="btn btn-lg btn-dark text-warning">Reveal</button>
@@ -15,13 +16,18 @@ export default {
   name: 'blog',
   props: ["blogData"],
   data(){
+  
     return {
       revealComments: false
     }
+    
   },
   computed:{},
   methods:{
-
+    blogPage() {
+      this.$store.dispatch("getBlog", this.blogData)
+      this.$router.push({name: "SingleBlog"})
+    }
   },
   components:{}
 }

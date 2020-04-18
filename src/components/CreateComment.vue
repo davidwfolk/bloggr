@@ -1,11 +1,11 @@
 <template>
-  <div class="create-blog col-12 m-auto">
+  <div class="create-comment col-12 m-auto">
     <div class="form-group">
       <label for>Body</label>
       <textarea
         type="text"
         class="form-control"
-        placeholder="Type your blog here..."
+        placeholder="Type your comment here..."
         v-model="newComment.body"></textarea>
     </div>
     <button type="button" class="btn btn-primary" @click="addComment()">Add comment</button>

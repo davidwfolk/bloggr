@@ -33,7 +33,7 @@ export default {
     this.$store.dispatch("getBlogs");
   },
   computed: {
-//     allJokes() {
+//     allBlogs() {
 //       return this.$store.state.blogs;
 //     },
     sortBlogs: function() {
