@@ -1,7 +1,7 @@
 <template>
   <div class="create-blog col-8 m-auto">
     <div class="form-group">
-      <label for>Setup</label>
+      <label for>Title</label>
       <input
         type="text"
         class="form-control"

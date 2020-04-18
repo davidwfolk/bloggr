@@ -21,17 +21,21 @@ export default {
   created() {
     this.$store.dispatch("getMyBlogs");
     this.$store.dispatch("getProfile");
+    this.$store.dispatch("getMyComments")
   },
   computed: {
     profile() {
       return this.$store.state.profile;
     },
     getMyBlogs() {
-             return this.$store.state.blogs
+      return this.$store.state.blogs
     },
+    getMyComments() {
+      return this.$store.state.comments
+    }
   },
   components: {
-    ProfileBlog
+    ProfileBlog,
   }
 };
 </script>

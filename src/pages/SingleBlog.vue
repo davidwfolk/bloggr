@@ -22,9 +22,9 @@ export default {
     return {
     }
   },
-  created() {
-    this.$store.dispatch("getSingleBlog")
-  },
+  // created() {
+  //   this.$store.dispatch("getSingleBlog")
+  // },
   computed:{
     getSingleBlog() {
     return this.$store.state.blogs
@@ -32,9 +32,9 @@ export default {
     
   },
   methods:{
-    goHome() {
-      this.$router.push({name: "Home"})
-    }
+    // goHome() {
+    //   this.$router.push({path: "/"})
+    // }
       
   },
   components:{

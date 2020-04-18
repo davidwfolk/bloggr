@@ -1,7 +1,7 @@
 <template>
   <div class="create-comment col-12 m-auto">
     <div class="form-group">
-      <label for>Body</label>
+      <label for>Comment</label>
       <textarea
         type="text"
         class="form-control"
@@ -18,7 +18,7 @@ export default {
   name: "create-comment",
   data() {
     return {
-      newComment: {}
+      newComment: []
     };
   },
   mounted() {},
@@ -26,7 +26,7 @@ export default {
   methods: {
     addComment() {
       this.$store.dispatch("addComment", this.newComment);
-      this.newComment = {};
+      this.newComment = [];
     }
   },
   components: {}
