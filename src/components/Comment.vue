@@ -13,8 +13,9 @@
             style="color: green"
             @click="editing=true"
           >Edit Comment</button>
-        <div v-if="commentData.creatorEmail == profile.email">
         </div>
+            <!-- <div v-if="commentData.creatorEmail == profile.email">
+            </div> -->
         <div v-else>
           <form class="col-12">
             <div>
@@ -30,7 +31,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 
@@ -46,6 +46,10 @@ export default {
   },
   computed: {},
   methods: {
+      editComment() {
+      this.$store.dispatch("getThisBlog", this.commentData);
+      this.editing = false
+      },
     //   profilePage() {
     // this.$store.dispatch("getComments")
     //   },
