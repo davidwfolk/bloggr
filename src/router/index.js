@@ -31,9 +31,10 @@ const routes = [
     beforeEnter: authGuard,
   },
   {
-    path: "/singleblog",
+    path: "/singleblog/:blogId",
     name: "SingleBlog",
-    component: SingleBlog
+    //@ts-ignore
+    component: () => import(/* webpackChunkName: "singleBlog" */ '../pages/SingleBlog.vue')
   }
 ];
 

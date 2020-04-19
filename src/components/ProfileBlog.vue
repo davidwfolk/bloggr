@@ -6,7 +6,7 @@
 
       </div>
     <div v-else>
-      <form class="col-8 m-auto">
+      <form class="col-12">
         <div>
 
         <input
@@ -14,7 +14,7 @@
          />
         </div>
         <div>
-         <textarea
+         <textarea rows="8" cols="80"
           v-model="blogData.body"
          />
         </div>
@@ -45,7 +45,8 @@
           <button class="btn btn-light" @click="showComments()">ShowComments</button>
         </div>
         <div v-else>
-        <Comment :blogData="getBlog" ></Comment>
+        <Comment :blogData="getBlog.comments"></Comment>
+        <div></div>
         <CreateComment :blogData="getBlog" v-if="$auth.isAuthenticated"></CreateComment>
         <small class="text-danger" v-else>You must log in to leave a comment.</small>
         </div>

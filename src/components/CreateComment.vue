@@ -34,13 +34,13 @@ export default {
   },
   methods: {
     addComment() {
-      this.newComment.blogId = this.blogData._id  //NOTE Undefined - adding this doesn't even let the function run
-      // console.log("blogId", this.blogData._id )
+      this.newComment.blogId = this.blogData.blog._id  //NOTE Undefined - adding this doesn't even let the function run
+      console.log("blogId", this.blogData.blog._id )
       // console.log(this.$route.params);
-      this.newComment.creatorEmail = this.blogData.creatorEmail  //this seems to be in the right track??
+      this.newComment.creatorEmail = this.blogData.blog.creatorEmail  //this seems to be in the right track??
       this.$store.dispatch("addComment", this.newComment);
       this.newComment = {};
-      console.log(this.newComment.creatorEmail)
+      console.log("creatorEmail", this.blogData.blog.creatorEmail)
     }
   },
   components: {}

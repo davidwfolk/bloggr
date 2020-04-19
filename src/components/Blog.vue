@@ -2,7 +2,7 @@
   <div class="blog col-8 mx-auto mb-2 card border-light text-center p-1">
     <p>{{blogData.title}}</p>
     <p>{{blogData.creatorEmail}}</p>
-    <button class="btn btn-primary" @click="blogPage()">View Blog</button>
+    <button class="btn btn-primary" @click="selectBlog()">View Blog</button>
    
     <!-- <img :src="{{blogData.imgUrl}}"/> -->
     <!-- <button v-on:click="revealComments = !revealComments" class="btn btn-lg btn-dark text-warning">Reveal</button>
@@ -22,11 +22,15 @@ export default {
     }
     
   },
+
   computed:{},
   methods:{
-    blogPage() {
-      this.$store.dispatch("getBlog", this.blogData)
-      this.$router.push({name: "SingleBlog"})
+    selectBlog() {
+      this.$store.commit("setActiveBlog", {})
+      this.$router.push({
+        name: "SingleBlog",
+        params: {blogId: this.blogData._id}
+      })
     }
   },
   components:{}

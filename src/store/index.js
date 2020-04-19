@@ -9,7 +9,9 @@ export default new Vuex.Store({
   state: {
     profile: {},
     blogs: [],
-    blogDetails: {}
+    blogDetails: {},
+    activeBlog: {},
+    blogComments: [],
   },
   mutations: {
     setProfile(state, profile) {
@@ -20,6 +22,12 @@ export default new Vuex.Store({
     },
     setBlogDetails (state, blog) {
       state.blogDetails = blog
+    },
+    setActiveBlog (state, blog) {
+      state.activeBlog = blog
+    },
+    setBlogComments (state, blogs) {
+      state.blogComments = blogs
     }
   },
   actions: {
@@ -54,14 +62,15 @@ export default new Vuex.Store({
         console.error(error)
       }
     },
-    async getSingleBlog({commit, dispatch}, blogId) {
-      try{
-        let res = await api.get('blogs/' + blogId._id )
-        dispatch('setBlogs')
-      } catch (error) {
-        console.error(error)
-      }
-    },
+    // async getSingleBlog({commit, dispatch}, blogId) {
+    //   try{
+    //     let res = await api.get('blogs/' + blogId._id )
+    //     dispatch('setActiveBlog')
+    //     debugger
+    //   } catch (error) {
+    //     console.error(error)
+    //   }
+    // },
     async getMyBlogs({commit, dispatch }, userBlog){
       try {
         let res = await api.get('profile/blogs/');
@@ -103,6 +112,17 @@ async editBlog({ commit, dispatch }, blogId,) {
     console.error(error)
   }
 },
+async getThisBlog({commit, dispatch}, blogId) {
+  try{
+    let res = await api.get('blogs/' + blogId)
+    commit('setActiveBlog', res.data)
+    dispatch('setActiveBlog', res.data)
+    console.log("getThisBlog", res.data)
+  } catch (error) {
+    console.error(error)
+  }
+},
+
 
 
 // NOTE Comments //
@@ -113,7 +133,7 @@ async addComment({ commit, dispatch }, newComment) {
     debugger
     let res = await api.post('comments', newComment)
     console.log("addComment", res.data)
-    dispatch('getBlog', newComment.blogId)
+    dispatch('getCommentBlog', newComment.blogId)
   } catch (error) {
     console.error(error)
   }
