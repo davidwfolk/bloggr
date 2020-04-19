@@ -1,11 +1,35 @@
 <template>
   <div class="comments">
     <!-- <h6 class='text-center p-3'>Write a Comment</h6>
-    <h6>{{blogData.title}}</h6>   NOTE not showing up, seen as undefined -->
+    <h6>{{blogData.title}}</h6>   NOTE not showing up, seen as undefined-->
     <!-- <CreateComment v-if="$auth.isAuthenticated" />
-    <small class="text-danger" v-else>You must log in to write a comment.</small> -->
-    <Comment v-for="comment in blogData" :blogData="comment" :key="comment._id">
-      </Comment>
+    <small class="text-danger" v-else>You must log in to write a comment.</small>-->
+    <div class="border m-1 bg-light">
+      <div v-if="!editing">
+        <h5 style="color: green">{{commentData.body}}</h5>
+        <div>{{commentData.creatorEmail}}</div>
+          <button type="button"
+            class="btn m-auto"
+            style="color: green"
+            @click="editing=true"
+          >Edit Comment</button>
+        <div v-if="commentData.creatorEmail == profile.email">
+        </div>
+        <div v-else>
+          <form class="col-12">
+            <div>
+              <textarea rows="8" cols="80" v-model="commentData.body" />
+            </div>
+            <button
+              @click="editComment()"
+              type="button"
+              class="btn ml-auto"
+              style="color: green"
+            >Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -13,27 +37,24 @@
 <script>
 // import CreateComment from "./CreateComment.vue"
 export default {
-  name: 'comment',
-  props: ["blogData"],
-  data(){
+  name: "comment",
+  props: ["commentData"],
+  data() {
     return {
-    }    
+      editing: false
+    };
   },
-  computed:{
-
-  },
-  methods:{
-    
+  computed: {},
+  methods: {
     //   profilePage() {
     // this.$store.dispatch("getComments")
     //   },
-      // this.$router.push({name: "SingleBlog"})
-    },
-  components:{ }
-}
+    // this.$router.push({name: "SingleBlog"})
+  },
+  components: {}
+};
 </script>
 
 
 <style scoped>
-
 </style>

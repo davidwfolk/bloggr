@@ -16,8 +16,8 @@
 <script>
 
 export default {
-  name: "create-comment",
-  props: ["blogData"],
+  name: "create-comment-single",
+  props: ["commentData"],
   
   data() {
     return {
@@ -27,14 +27,17 @@ export default {
   },
   mounted() {},
   computed: {
+    // pullBlogDetails() {
+    //   return this.$store.state.blogDetails //NOTE thought I'd try this...not working
 
+    // }
   },
   methods: {
     addComment() {
-      this.newComment.blogId = this.blogData.blog._id
-      console.log("blogId", this.blogData.blog._id )
+      this.newComment.blogId = this.commentData.blog._id  //NOTE Undefined - adding this doesn't even let the function run
+      console.log("blogId", this.commentData.blog._id )
       // console.log(this.$route.params);
-      this.newComment.creatorEmail = this.blogData.blog.creatorEmail
+      this.newComment.creatorEmail = this.commentData.blog.creatorEmail  //this seems to be in the right track??
       this.$store.dispatch("addComment", this.newComment);
       this.newComment = {};
       console.log("creatorEmail", this.blogData.blog.creatorEmail)

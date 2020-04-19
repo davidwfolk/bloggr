@@ -133,7 +133,7 @@ async addComment({ commit, dispatch }, newComment) {
     debugger
     let res = await api.post('comments', newComment)
     console.log("addComment", res.data)
-    dispatch('getCommentBlog', newComment.blogId)
+    dispatch('getThisBlog', newComment.blogId)
   } catch (error) {
     console.error(error)
   }

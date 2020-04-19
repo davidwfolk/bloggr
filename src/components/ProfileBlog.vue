@@ -5,6 +5,7 @@
       <p>{{blogData.body}}</p>
 
       </div>
+      
     <div v-else>
       <form class="col-12">
         <div>
@@ -59,7 +60,7 @@ import Comment from "./Comment.vue"
 import CreateComment from "./CreateComment.vue"
 export default {
   name: 'profileBlog',
-  props: ["blogData"],
+  props: ["blogData", "commentData"],
 
   data(){
     return {
@@ -72,6 +73,8 @@ export default {
   created() {
     this.$store.dispatch("getBlog");
     this.$store.dispatch("getProfile");
+    this.$store.dispatch("getThisBlog", this.$route.params.blogId),
+    this.$store.dispatch("getThisBlog", this.blogData._id)
   },
   computed:{
     getBlog() {
@@ -80,6 +83,10 @@ export default {
     getMyBlogs() {
       return this.$store.state.blogs
     },
+        singleCommentsDetails() {
+    console.log("singleBlogDetails",this.$store.state.activeBlog)
+     return this.$store.state.activeBlog.comments;
+    }
   },
 
   methods:{
@@ -93,7 +100,7 @@ export default {
       showComments() {
         this.$store.dispatch("getBlog", this.blogData);
         this.edit = true
-      }
+      },
   },
   components:{
     Comment,
