@@ -94,7 +94,7 @@ export default new Vuex.Store({
       console.error(error)
     }
 },
-async editBlog({ commit, dispatch }, blogId) {
+async editBlog({ commit, dispatch }, blogId,) {
   try {
     let res = await api.put('blogs/' + blogId._id, blogId);
     commit('setBlogs', res.data)
@@ -112,7 +112,7 @@ async addComment({ commit, dispatch }, newComment) {
   try {
     debugger
     let res = await api.post('comments', newComment)
-    console.log(res.data)
+    console.log("addComment", res.data)
     dispatch('getBlog', newComment.blogId)
   } catch (error) {
     console.error(error)

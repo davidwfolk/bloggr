@@ -41,13 +41,21 @@
     </div>
            <!-- <blogComment v-for="blogComment in getComments" :blogData="blogComment" :key="blogComment._id">
        </blogComment> -->
-        <Comment />
+        <div v-if="!edit">
+          <button class="btn btn-light" @click="showComments()">ShowComments</button>
+        </div>
+        <div v-else>
+        <Comment :blogData="getBlog" ></Comment>
+        <CreateComment :blogData="getBlog" v-if="$auth.isAuthenticated"></CreateComment>
+        <small class="text-danger" v-else>You must log in to leave a comment.</small>
+        </div>
   </div>
 </template>
 
 
 <script>
 import Comment from "./Comment.vue"
+import CreateComment from "./CreateComment.vue"
 export default {
   name: 'profileBlog',
   props: ["blogData"],
@@ -56,10 +64,21 @@ export default {
     return {
       revealComments: false,
       editing: false,
-      data: ""
+      data: "",
+      edit: false
     }
   },
+  created() {
+    this.$store.dispatch("getBlog");
+    this.$store.dispatch("getProfile");
+  },
   computed:{
+    getBlog() {
+      return this.$store.state.blogDetails;
+    },
+    getMyBlogs() {
+      return this.$store.state.blogs
+    },
   },
 
   methods:{
@@ -70,10 +89,14 @@ export default {
       this.$store.dispatch("editBlog", this.blogData);
       this.editing = false
       },
-      
+      showComments() {
+        this.$store.dispatch("getBlog", this.blogData);
+        this.edit = true
+      }
   },
   components:{
-    Comment
+    Comment,
+    CreateComment
   }
 }
 </script>

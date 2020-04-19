@@ -26,12 +26,18 @@ export default {
     };
   },
   mounted() {},
-  computed: {},
+  computed: {
+    // pullBlogDetails() {
+    //   return this.$store.state.blogDetails //NOTE thought I'd try this...not working
+
+    // }
+  },
   methods: {
     addComment() {
-      this.newComment.blogId == this.blogData._id
-      console.log(this.newComment.blogId )
-      this.newComment.creatorEmail = this.blogData.creatorEmail//this seems to be in the right track??
+      this.newComment.blogId = this.blogData._id  //NOTE Undefined - adding this doesn't even let the function run
+      // console.log("blogId", this.blogData._id )
+      // console.log(this.$route.params);
+      this.newComment.creatorEmail = this.blogData.creatorEmail  //this seems to be in the right track??
       this.$store.dispatch("addComment", this.newComment);
       this.newComment = {};
       console.log(this.newComment.creatorEmail)
