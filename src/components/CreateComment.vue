@@ -2,6 +2,7 @@
   <div class="create-comment col-12 m-auto">
     <div class="form-group">
       <label for>Comment</label>
+   <!-- <div v-if="this.commentData.creatorEmail == this.profile.email"> -->
       <textarea
         type="text"
         class="form-control"

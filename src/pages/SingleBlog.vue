@@ -46,6 +46,9 @@ export default {
     singleCommentsDetails() {
       console.log("singleCommentsDetails",this.$store.state.activeBlog)
      return this.$store.state.activeBlog.comments;
+    },
+    profile() {
+      return this.$store.state.profile;
     }
     },
   methods:{

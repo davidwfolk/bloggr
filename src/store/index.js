@@ -157,5 +157,22 @@ async getComments({commit, dispatch}, commentsId) {
 
   }
 },
+async editComment({ commit, dispatch }, commentId,) {
+  try {
+    let res = await api.put('comments/' + commentId.id, commentId);
+    commit('setBlogs', res.data)
+    dispatch('getThisBlog', commentId.blogId)
+  } catch (error) {
+    console.error(error)
+  }
+},
+async deleteComment({ commit, dispatch }, commentId) {
+  try {
+    let res = await api.delete('comments/' + commentId.id);
+    dispatch('getThisBlog', commentId.blogId)
+  } catch (error) {
+    console.error(error)
+  }
+},
   }
 });

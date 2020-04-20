@@ -27,6 +27,9 @@ export default {
   },
   mounted() {},
   computed: {
+    blog() {
+      return this.$store.state.activeBlog.blog
+    }
     // pullBlogDetails() {
     //   return this.$store.state.blogDetails //NOTE thought I'd try this...not working
 
@@ -34,10 +37,10 @@ export default {
   },
   methods: {
     addComment() {
-      this.newComment.blogId = this.commentData.blog._id  //NOTE Undefined - adding this doesn't even let the function run
-      console.log("blogId", this.commentData.blog._id )
+      this.newComment.blogId = this.blog._id  //NOTE Undefined - adding this doesn't even let the function run
+      console.log("blogId", this.blog._id )
       // console.log(this.$route.params);
-      this.newComment.creatorEmail = this.commentData.blog.creatorEmail  //this seems to be in the right track??
+      this.newComment.creatorEmail = this.blog.creatorEmail  //this seems to be in the right track??
       this.$store.dispatch("addComment", this.newComment);
       this.newComment = {};
       console.log("creatorEmail", this.blogData.blog.creatorEmail)
