@@ -8,20 +8,22 @@
       <div v-if="!editing">
         <h5 style="color: green">{{commentData.body}}</h5>
         <div>{{commentData.creatorEmail}}</div>
+          <div v-if="this.commentData.creatorEmail == this.profile.email">
         <button
           type="button"
           class="btn m-auto"
           style="color: green"
           @click="editing=true"
         >Edit Comment</button>
-        <!-- <div v-if="this.commentData.creatorEmail == this.profile.email"> -->
+        </div>
+        <div v-if="this.commentData.creatorEmail == this.profile.email">
             <button
               type="button"
               class="btn btn m-auto"
               style="color: green"
               @click="deleteComment()"
             >Delete Comment</button>
-        <!-- </div> -->
+        </div>
       </div>
       <div v-else>
         <form class="col-12">

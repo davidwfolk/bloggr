@@ -1,5 +1,6 @@
 <template>
   <div class="blog col-8 mx-auto mb-2 card border-light text-center p-1">
+    <img class="img-fluid" :src="blogData.imgUrl" alt />
     <p>{{blogData.title}}</p>
     <p>{{blogData.creatorEmail}}</p>
     <button class="btn btn-primary" @click="selectBlog()">View Blog</button>

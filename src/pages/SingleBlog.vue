@@ -2,6 +2,7 @@
 <template>
   <div class="col-12 blog mx-auto text-center
   card border-light p-3 mt-5 mb-5">
+      <img class="img-fluid" :src="singleBlogDetails.imgUrl" alt />
       <h2>{{singleBlogDetails.title}}</h2>
       <h4>{{singleBlogDetails.creatorEmail}}</h4>
       <p>{{singleBlogDetails.body}}</p>
