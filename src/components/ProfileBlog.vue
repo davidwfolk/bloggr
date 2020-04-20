@@ -6,7 +6,7 @@
 
       </div>
       
-    <!-- <div v-else>
+    <div v-else>
       <form class="col-12">
         <div>
 
@@ -25,7 +25,7 @@
     </div>
       <div class="comments">
         <small class="text-danger"></small>
-       </div> -->
+       </div>
     <!-- <div v-if="!editing">
       <p>{{commentData.title}}</p>
       <p>{{commentData.body}}</p>
@@ -36,10 +36,10 @@
     <!-- <img :src="{{blogData.imgUrl}}"/> -->
     <!-- <button v-on:click="revealComments = !revealComments" class="btn btn-lg btn-dark text-warning">Reveal</button>
   <h4 class="p-2 mt-3" v-show="revealComments" >{{commentData.body}}</h4> -->
-    <!-- <div class="row p-1 m-1">
+    <div class="row p-1 m-1">
     <button type="button" class="btn btn m-auto" style="color: green" @click="deleteBlog()">Delete Blog</button>
     <button type="button" class="btn m-auto" style="color: green" @click="editing=true">Edit Blog</button>
-    </div> -->
+    </div>
            <!-- <blogComment v-for="blogComment in getComments" :blogData="blogComment" :key="blogComment._id">
        </blogComment> -->
         <!-- <div v-if="!edit">
